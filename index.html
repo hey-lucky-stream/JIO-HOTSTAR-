@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Popup-Blocked Iframe</title>
+  <title>Fullscreen Iframe</title>
   <style>
-    body, html {
+    html, body {
       margin: 0;
       padding: 0;
       height: 100%;
@@ -19,7 +19,9 @@
 <body>
   <iframe 
     src="https://userrr4591.ifrem.net/iframe/frame.php"
-    sandbox="allow-same-origin allow-scripts allow-forms"
+    sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-presentation allow-popups-to-escape-sandbox"
+    allow="fullscreen"
+    allowfullscreen
   ></iframe>
 </body>
 </html>
