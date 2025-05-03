@@ -1,38 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PS IPL Live - JW Player</title>
-  <script src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
+  <meta charset="UTF-8">
+  <title>Popup-Blocked Iframe</title>
   <style>
-    html, body {
+    body, html {
       margin: 0;
       padding: 0;
-      background: black;
+      height: 100%;
     }
-    #player {
+    iframe {
       width: 100vw;
-      height: 56.25vw; /* 16:9 ratio */
-      max-height: 100vh;
+      height: 100vh;
+      border: none;
     }
   </style>
 </head>
 <body>
-
-  <div id="player"></div>
-
-  <script>
-    jwplayer("player").setup({
-      file: "https://psplayflix.site/2025/ps_ipl-liv.m3u8?ps=hin",
-      width: "100%",
-      aspectratio: "16:9",
-      autostart: false,
-      mute: false,
-      stretching: "fill",
-      controls: true,
-      primary: "html5"
-    });
-  </script>
+  <iframe 
+    src="https://userrr4591.ifrem.net/iframe/frame.php"
+    sandbox="allow-same-origin allow-scripts allow-forms"
+  ></iframe>
 </body>
 </html>
