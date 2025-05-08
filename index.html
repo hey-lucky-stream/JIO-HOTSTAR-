@@ -8,20 +8,67 @@
       margin: 0;
       padding: 0;
       height: 100%;
+      overflow: hidden;
     }
-    iframe {
+    #container {
+      position: relative;
       width: 100vw;
       height: 100vh;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
       border: none;
+    }
+    #fullscreenBtn {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 999;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00f, 0 0 20px #00f, 0 0 30px #00f;
+      transition: transform 0.2s ease;
+    }
+    #fullscreenBtn:hover {
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
-  <iframe 
-    src="https://userrr4591.ifrem.net/iframe/frame.php"
-    sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-presentation allow-popups-to-escape-sandbox"
-    allow="fullscreen"
-    allowfullscreen
-  ></iframe>
+  <div id="container">
+    <button id="fullscreenBtn">Fullscreen</button>
+    <iframe 
+      id="myIframe"
+      src="https://userrr4591.ifrem.net/iframe/frame.php"
+      sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-presentation allow-popups-to-escape-sandbox"
+      allow="fullscreen; encrypted-media; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
+
+  <script>
+    const btn = document.getElementById('fullscreenBtn');
+    const iframe = document.getElementById('myIframe');
+
+    btn.addEventListener('click', () => {
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+      } else if (iframe.webkitRequestFullscreen) {
+        iframe.webkitRequestFullscreen();
+      } else if (iframe.mozRequestFullScreen) {
+        iframe.mozRequestFullScreen();
+      } else if (iframe.msRequestFullscreen) {
+        iframe.msRequestFullscreen();
+      } else {
+        alert("Fullscreen not supported");
+      }
+    });
+  </script>
 </body>
 </html>
